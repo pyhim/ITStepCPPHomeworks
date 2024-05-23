@@ -51,19 +51,16 @@ namespace CPP {
 
             cout << "Enter the model: ";
             cin.getline(buffer, SIZE);
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             this->model = new char[strlen(buffer)];
             strcpy(this->model, buffer);
 
             cout << "Enter the country: ";
             cin.getline(buffer, SIZE);
-//        cin.ignore(numeric_limits<streamsize>::max(), '\n');
             this->country = new char[strlen(buffer)];
             strcpy(this->country, buffer);
 
             cout << "Enter the color: ";
             cin.getline(buffer, SIZE);
-//        cin.ignore(numeric_limits<streamsize>::max(), '\n');;
             this->color = new char[strlen(buffer)];
             strcpy(this->color, buffer);
 
@@ -74,11 +71,11 @@ namespace CPP {
         }
 
         void print() const {
-            cout << "Model: " << this->model
-                 << "Country: " << this->country
-                 << "Color: " << this->color
-                 << "Year: " << this->year
-                 << "Price: " << this->price;
+            cout << "Model: " << this->model << endl
+                 << "Country: " << this->country << endl
+                 << "Color: " << this->color << endl
+                 << "Year: " << this->year << endl
+                 << "Price: " << this->price << endl;
         }
 
         ~Car() {
