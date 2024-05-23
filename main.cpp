@@ -3,8 +3,10 @@
 using CPP::Car;
 
 int main() {
-    Car car;
+    Car car1;
+    Car car2("Toyota", "Japan", "Purple", 2007, 1233.1);
 
-    car.input();
-    car.print();
+    car1.input();
+    car1.print();
+    car2.print();
 }
