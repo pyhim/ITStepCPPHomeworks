@@ -15,9 +15,9 @@ using namespace std;
 namespace CPP {
     class Car {
     private:
-        char *model;
-        char *country;
-        char *color;
+        const char *model;
+        const char *country;
+        const char *color;
         int year;
         double price;
     public:
@@ -29,7 +29,7 @@ namespace CPP {
             this->price = 50234.12;
         }
 
-        Car(char *model, char *country, char *color, int year, double price) {
+        Car(const char *model, const char *country, const char *color, int year, double price) {
             this->model = model;
             this->country = country;
             this->color = color;
@@ -48,21 +48,25 @@ namespace CPP {
         void input() {
             const int SIZE = 25;
             char buffer[SIZE];
+            char *to_insert;
 
             cout << "Enter the model: ";
             cin.getline(buffer, SIZE);
-            this->model = new char[strlen(buffer)];
-            strcpy(this->model, buffer);
+            to_insert = new char[strlen(buffer)];
+            strcpy(to_insert, buffer);
+            this->model = to_insert;
 
             cout << "Enter the country: ";
             cin.getline(buffer, SIZE);
-            this->country = new char[strlen(buffer)];
-            strcpy(this->country, buffer);
+            to_insert = new char[strlen(buffer)];
+            strcpy(to_insert, buffer);
+            this->country = to_insert;
 
             cout << "Enter the color: ";
             cin.getline(buffer, SIZE);
-            this->color = new char[strlen(buffer)];
-            strcpy(this->color, buffer);
+            to_insert = new char[strlen(buffer)];
+            strcpy(to_insert, buffer);
+            this->color = to_insert;
 
             cout << "Enter the year: ";
             cin >> this->year;
@@ -75,7 +79,8 @@ namespace CPP {
                  << "Country: " << this->country << endl
                  << "Color: " << this->color << endl
                  << "Year: " << this->year << endl
-                 << "Price: " << this->price << endl;
+                 << "Price: " << this->price << endl
+                 << endl;
         }
 
         ~Car() {
