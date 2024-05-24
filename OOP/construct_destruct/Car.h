@@ -6,8 +6,6 @@
 #define CPP_CAR_H
 
 #include <iostream>
-#include <ios>
-#include <limits>
 #include <cstring>
 
 using namespace std;
