@@ -40,21 +40,18 @@ namespace CPP {
         to_insert = new char[strlen(buffer)];
         strcpy(to_insert, buffer);
         this->model = to_insert;
-        delete[] to_insert;
 
         cout << "Enter the country: ";
         cin.getline(buffer, SIZE);
         to_insert = new char[strlen(buffer)];
         strcpy(to_insert, buffer);
         this->country = to_insert;
-        delete[] to_insert;
 
         cout << "Enter the color: ";
         cin.getline(buffer, SIZE);
         to_insert = new char[strlen(buffer)];
         strcpy(to_insert, buffer);
         this->color = to_insert;
-        delete[] to_insert;
 
         cout << "Enter the year: ";
         cin >> this->year;
@@ -77,17 +74,14 @@ namespace CPP {
         to_insert = new char[strlen(object.model) + 1];
         strcpy(to_insert, object.model);
         this->model = to_insert;
-        delete[] to_insert;
 
         to_insert = new char[strlen(object.country) + 1];
         strcpy(to_insert, object.country);
         this->country = to_insert;
-        delete[] to_insert;
 
         to_insert = new char[strlen(object.color) + 1];
         strcpy(to_insert, object.color);
         this->color = to_insert;
-        delete[] to_insert;
 
         this->year = object.year;
         this->price = object.price;
