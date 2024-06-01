@@ -44,6 +44,23 @@ namespace CPP {
         Flat::quadrature = quadrature;
     }
 
+    Flat& Flat::operator=(const Flat& other) {
+        if (this == &other) {
+            return *this;
+        }
+
+        delete[] family;
+
+        family_size = other.family_size;
+        quadrature = other.quadrature;
+        family = new Person[family_size];
+        for (size_t i = 0; i < family_size; ++i) {
+            family[i] = other.family[i];
+        }
+
+        return *this;
+    }
+
     Flat::~Flat() {
         delete[] family;
     }

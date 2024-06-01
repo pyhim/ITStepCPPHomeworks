@@ -36,6 +36,8 @@ namespace CPP {
 
         void addFamilyMember(const Person& person);
 
+        Flat& operator=(const Flat& other);
+
         ~Flat();
     };
 
