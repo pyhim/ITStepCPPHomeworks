@@ -1,15 +1,16 @@
-#include "OOP/FlatHouse/headers/FlatHouse.h"
+// #include "OOP/Reservoir/Reservoir.h"
+#include <iostream>
+#include "OOP/Account/Account.h"
 
 using namespace CPP;
 
 int main() {
-    Person person1("123412312", "Dmytro", "Galytskyi", "Ruslanovych", Date(14, 10, 2006));
-    Person person2("123412312", "Dmytro", "Galytskyi", "Ruslanovych", Date(14, 10, 2006));
-    Person family[2]{person1, person2};
-    Flat flat1(family, 2, 15.1);
-    Flat flat2(family, 2, 16.2);
-    Flat flats[2]{flat1, flat2};
-    FlatHouse house(flats, 2);
+    Account account("sasdfsadf", "1243fadsfasdf", 0.23);
+    Account account1, account2, account3;
+
+    account.makeDeposit(25600.54);
+    std::cout << account.exchangeToDollars();
+    std::cout << account.getCreatedInstances();
 
     return 0;
 }
