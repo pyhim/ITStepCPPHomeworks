@@ -15,7 +15,7 @@ namespace CPP {
     }
 
     Account::Account() : Account(nullptr, nullptr, 0) {
-        Account::createdInstances++;
+
     }
 
     void Account::changeAccountHolder(const char *surname, const char *serialNumber) {

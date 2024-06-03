@@ -10,7 +10,8 @@ int main() {
 
     account.makeDeposit(25600.54);
     std::cout << account.exchangeToDollars();
-    std::cout << account.getCreatedInstances();
+    int temp = CPP::Account::getCreatedInstances();
+    std::cout << temp;
 
     return 0;
 }
