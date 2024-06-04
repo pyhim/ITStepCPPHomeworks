@@ -20,7 +20,7 @@ namespace CPP {
 
         Reservoir(const Reservoir& other);
 
-        Reservoir operator=(const Reservoir& other);
+        Reservoir& operator=(const Reservoir& other);
 
         ~Reservoir();
 
