@@ -1,17 +1,16 @@
-// #include "OOP/Reservoir/Reservoir.h"
 #include <iostream>
-#include "OOP/Account/Account.h"
+#include "OOP/Fraction/Fraction.h"
 
 using namespace CPP;
+using std::cout;
 
 int main() {
-    Account account("sasdfsadf", "1243fadsfasdf", 0.23);
-    Account account1, account2, account3;
+    Fraction fraction1(5, 3), fraction2(2, 3);
 
-    account.makeDeposit(25600.54);
-    std::cout << account.exchangeToDollars();
-    int temp = CPP::Account::getCreatedInstances();
-    std::cout << temp;
+    (fraction1 + fraction2).print();
+    (fraction1 - fraction2).print();
+    (fraction1 * fraction2).print();
+    (fraction1 / fraction2).print();
 
     return 0;
 }
