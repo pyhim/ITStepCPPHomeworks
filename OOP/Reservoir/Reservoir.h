@@ -24,13 +24,13 @@ namespace CPP {
 
         ~Reservoir();
 
-        double volume() const;
+        [[nodiscard]] double volume() const;
 
-        double square() const;
+        [[nodiscard]] double square() const;
 
         bool isEqual(const Reservoir& other);
 
-        double largestSquare(const Reservoir& other);
+        [[nodiscard]] double largestSquare(const Reservoir& other) const;
 
         [[nodiscard]] double getHeight() const;
 
