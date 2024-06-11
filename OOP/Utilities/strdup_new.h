@@ -9,4 +9,5 @@ namespace CPP {
     char* strdup(const char* str);
 }
 
+
 #endif //CPP_STRDUP_NEW_H

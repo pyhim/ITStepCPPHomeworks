@@ -29,25 +29,37 @@ namespace CPP {
 
         void output() const;
 
+        [[nodiscard]] const char *getString() const;
+
+        [[nodiscard]] long getLength() const;
+
         void myStrcpy(const MyString &other);
 
         bool myStrstr(const char *string) const;
 
-        int myChr(char c) const;
+        [[nodiscard]] long myChr(char c) const;
 
-        long myStrlen() const;
+        [[nodiscard]] long myStrlen() const;
 
         void myConcat(const MyString &other);
 
         void myDelChr(char c);
 
-        int myStrCmp(const MyString &other) const;
+        [[nodiscard]] int myStrCmp(const MyString &other) const;
 
         MyString operator+(MyString &other) const;
 
         void operator+=(MyString &other);
 
-        int getInstances() const;
+        void operator+=(const char *string);
+
+        void operator-=(char c);
+
+        void operator*(int value);
+
+        char operator[](long index);
+
+        [[nodiscard]] static int getInstances();
     };
 
 } // CPP
