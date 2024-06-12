@@ -92,5 +92,4 @@ namespace CPP {
         delete[] this->country;
         delete[] this->color;
     }
-
 }
