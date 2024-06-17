@@ -23,7 +23,11 @@ namespace CPP {
 
         MyString(const MyString& other);
 
+        MyString( MyString&& other) noexcept;
+
         MyString& operator=(const MyString& other);
+
+        MyString& operator=(MyString&& other) noexcept;
 
         void input();
 

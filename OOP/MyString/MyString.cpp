@@ -184,4 +184,25 @@ namespace CPP {
     int MyString::getInstances() {
         return MyString::instances;
     }
+
+    MyString::MyString(MyString &&other) noexcept : string(other.string), length(other.length) {
+        other.string = nullptr;
+        other.length = 0;
+    }
+
+    MyString &MyString::operator=(MyString &&other) noexcept {
+        if (this == &other) {
+            return *this;
+        }
+
+        delete[] this->string;
+
+        this->string = other.string;
+        this->length = other.length;
+
+        other.string = nullptr;
+        other.length = 0;
+
+        return *this;
+    }
 } // CPP
