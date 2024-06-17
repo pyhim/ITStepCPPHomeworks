@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     Car car1("Audi", 2023, 50000), car2("BMW", 2019, 30000);
     
-    cout << car1 << endl;
+    /*cout << car1 << endl;
     cin >> car1;
     cout << car1 << endl;
     
@@ -24,5 +24,11 @@ int main() {
 	double r = car1 - car2; // разность стоимости автомобилей
 	double sum = car1 + car2; // сумма стоимости автомобилей , возвращается общая сумма
     
-    cout << r << ' ' << sum << endl;
+    cout << r << ' ' << sum << endl;*/
+
+    Car car3 = std::move(car1), car4("Nissan", 1231, 12412321);
+    cout << car3;
+
+    car4 = std::move(car2);
+    cout << car4;
 }
