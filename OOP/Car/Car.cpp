@@ -87,6 +87,31 @@ namespace CPP {
         return this->price + other.price;
     }
 
+    Car::Car(Car &&other) noexcept : price(other.price), year(other.year) {
+        other.price = 0;
+        other.year = 0;
+
+        this->model = other.model;
+        other.model = nullptr;
+    }
+
+    Car &Car::operator=(Car &&other) noexcept {
+        if (this == &other) {
+            return *this;
+        }
+
+        delete[] this->model;
+
+        this->model = other.model;
+        this->price = other.price;
+        this->year = other.year;
+
+        other.price = 0;
+        other.year = 0;
+
+        return *this;
+    }
+
     ostream &operator<<(ostream &os, Car &car) {
         os << car.getModel() << ' ' << car.getYear() << ' ' << car.getPrice() << endl;
         return os;

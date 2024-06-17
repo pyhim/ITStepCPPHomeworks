@@ -51,6 +51,10 @@ namespace CPP {
         double operator-(const Car &other) const;
 
         double operator+(const Car &other) const;
+
+        Car(Car &&other) noexcept;
+
+        Car &operator=(Car &&other) noexcept;
     };
 
     ostream &operator<<(ostream &os, Car &car);
