@@ -14,23 +14,23 @@ namespace CPP {
 
     class Car {
     private:
-        const char *model;
+        string model;
+        string color;
+        string country;
         int year;
         double price;
     public:
         Car();
 
-        Car(const char *model, int year, double price);
+        Car(string model, string color, string country, int year, double price);
 
         Car(const Car &other);
 
         Car &operator=(const Car &other);
 
-        ~Car();
+        [[nodiscard]] basic_string<char> getModel() const;
 
-        [[nodiscard]] const char *getModel() const;
-
-        void setModel(const char *model);
+        void setModel(const string &model);
 
         [[nodiscard]] int getYear() const;
 
@@ -39,6 +39,14 @@ namespace CPP {
         [[nodiscard]] double getPrice() const;
 
         void setPrice(double price);
+
+        [[nodiscard]] const string &getColor() const;
+
+        void setColor(const string &color);
+
+        [[nodiscard]] const string &getCountry() const;
+
+        void setCountry(const string &country);
 
         void operator+=(int value);
 

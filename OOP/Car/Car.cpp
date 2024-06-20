@@ -4,51 +4,34 @@
 
 #include "Car.h"
 
+#include <utility>
+
 using namespace std;
 
 namespace CPP {
-    Car::Car() : model(nullptr), year(0), price(0.0) {
+    Car::Car() : year(0), price(0.0) {
 
     }
 
-    Car::Car(const char *model, int year, double price) : model(strdup(model)), year(year), price(price) {
+    Car::Car(string model, string color, string country, int year, double price)
+    : model(std::move(model)), color(std::move(color)), country(std::move(country)), year(year), price(price) {
 
     }
 
-    Car::Car(const Car &other) : Car(other.model, other.year, other.price) {
+    Car::Car(const Car &other) = default;
 
+    Car &Car::operator=(const Car &other) = default;
+
+    basic_string<char> Car::getModel() const {
+        return this->model;
     }
 
-    Car &Car::operator=(const Car &other) {
-        if (this == &other) {
-            return *this;
-        }
-
-        delete[] this->model;
-
-        this->model = strdup(other.model);
-        this->year = other.year;
-        this->price = other.price;
-
-        return *this;
-    }
-
-    Car::~Car() {
-        delete[] this->model;
-    }
-
-    const char *Car::getModel() const {
-        return model;
-    }
-
-    void Car::setModel(const char *model) {
-        delete[] this->model;
-
-        this->model = strdup(model);
+    void Car::setModel(const string &model) {
+        this->model = model;
     }
 
     int Car::getYear() const {
-        return year;
+        return this->year;
     }
 
     void Car::setYear(int year) {
@@ -56,7 +39,7 @@ namespace CPP {
     }
 
     double Car::getPrice() const {
-        return price;
+        return this->price;
     }
 
     void Car::setPrice(double price) {
@@ -87,12 +70,9 @@ namespace CPP {
         return this->price + other.price;
     }
 
-    Car::Car(Car &&other) noexcept : price(other.price), year(other.year) {
+    Car::Car(Car &&other) noexcept : Car(other.model, other.color, other.country, other.year, other.price) {
         other.price = 0;
         other.year = 0;
-
-        this->model = other.model;
-        other.model = nullptr;
     }
 
     Car &Car::operator=(Car &&other) noexcept {
@@ -100,9 +80,9 @@ namespace CPP {
             return *this;
         }
 
-        delete[] this->model;
-
         this->model = other.model;
+        this->color = other.color;
+        this->country = other.country;
         this->price = other.price;
         this->year = other.year;
 
@@ -112,13 +92,35 @@ namespace CPP {
         return *this;
     }
 
+    const string &Car::getColor() const {
+        return this->color;
+    }
+
+    void Car::setColor(const string &color) {
+        Car::color = color;
+    }
+
+    const string &Car::getCountry() const {
+        return this->country;
+    }
+
+    void Car::setCountry(const string &country) {
+        Car::country = country;
+    }
+
     ostream &operator<<(ostream &os, Car &car) {
-        os << car.getModel() << ' ' << car.getYear() << ' ' << car.getPrice() << endl;
+        os << car.getModel() << ' '
+           << car.getColor() << ' '
+           << car.getCountry() << ' '
+           << car.getYear() << ' '
+           << car.getPrice() << ' '
+           << endl;
+
         return os;
     }
 
     istream &operator>>(istream &is, Car &car) {
-        char model[100];
+        string model, color, country;
         int year;
         double price;
 
@@ -126,11 +128,16 @@ namespace CPP {
         is >> year;
         cout << "Enter price: ";
         is >> price;
-        is.ignore();
         cout << "Enter model: ";
-        is.getline(model, 100);
+        is >> model;
+        cout << "Enter color: ";
+        is >> color;
+        cout << "Enter country: ";
+        is >> country;
 
         car.setModel(model);
+        car.setColor(color);
+        car.setCountry(country);
         car.setPrice(price);
         car.setYear(year);
 
