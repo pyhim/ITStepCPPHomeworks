@@ -5,7 +5,8 @@ using namespace CPP;
 using namespace std;
 
 int main() {
-    Car car1("Audi", 2023, 50000), car2("BMW", 2019, 30000);
+    Car car1("Audi", "Red", "Germany", 2023, 50000);
+    Car car2("BMW", "Blue", "Germany", 2019, 30000);
     
     /*cout << car1 << endl;
     cin >> car1;
@@ -26,8 +27,9 @@ int main() {
     
     cout << r << ' ' << sum << endl;*/
 
-    Car car3 = std::move(car1), car4("Nissan", 1231, 12412321);
+    Car car3 = std::move(car1), car4("Nissan", "Gray", "Japan",1231, 124123);
     cout << car3;
+    cout << car4;
 
     car4 = std::move(car2);
     cout << car4;
